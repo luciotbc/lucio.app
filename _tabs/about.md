@@ -8,7 +8,7 @@ Engenheiro de software com mais de 10 anos de experiência em desenvolvimento we
 
 Atuo como Senior Software Engineer, contribuindo com decisões técnicas, evolução de sistemas e entrega contínua em produção. Experiência em projetos de educação, CRM e sistemas corporativos.
 
-[Acesse meu Currículo](https://lucio.app/cv.pdf)
+[Acesse meu Currículo]({% link assets/downloads/lucio-charallo-cv.pdf %})
 
 ## O que eu faço
 
