@@ -1,0 +1,16 @@
+# Per-language site strings not covered by _data/locales (keys match `languages` in _config.yml)
+pt-BR:
+  name: Português
+  short: PT
+  locale: pt-BR
+  tagline: Minhas anotações revisadas por IA
+en:
+  name: English
+  short: EN
+  locale: en
+  tagline: My notes, reviewed by AI
+es:
+  name: Español
+  short: ES
+  locale: es-ES
+  tagline: Mis notas revisadas por IA
