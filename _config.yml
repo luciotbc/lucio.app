@@ -212,6 +212,7 @@ exclude:
   - docs
   - tools
   - README.md
+  - CLAUDE.md
   - LICENSE
   - purgecss.js
   - "*.config.js"
@@ -225,3 +226,13 @@ jekyll-archives:
   permalinks:
     tag: /tags/:name/
     category: /categories/:name/
+
+# i18n › https://github.com/untra/polyglot
+# pt-BR is served at the root; other languages under /en/ and /es/.
+# Posts in _posts/<lang>/ with the same filename as the pt-BR post are its translations.
+languages: ["pt-BR", "en", "es"]
+default_lang: "pt-BR"
+lang_from_path: true
+lang_vars: [lang]
+parallel_localization: false
+exclude_from_localization: ["assets/img", "assets/lib", "assets/downloads", "robots.txt"]

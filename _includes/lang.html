@@ -1,0 +1,8 @@
+{% comment %}
+  Detect appearance language and return it through variable "lang".
+  Overrides the theme to follow the language being built by jekyll-polyglot.
+{% endcomment %}
+{% assign lang = site.data.i18n[site.active_lang].locale | default: site.lang %}
+{% unless site.data.locales[lang] %}
+  {% assign lang = 'en' %}
+{% endunless %}

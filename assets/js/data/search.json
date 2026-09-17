@@ -1,0 +1,20 @@
+---
+layout: compress
+swcache: true
+---
+
+{%- comment -%} Localized: URLs point to the active language (jekyll-polyglot) {%- endcomment -%}
+{%- if site.active_lang != site.default_lang -%}{%- capture lang_prefix -%}/{{ site.active_lang }}{%- endcapture -%}{%- endif -%}
+[
+  {% for post in site.posts %}
+  {
+    "title": {{ post.title | jsonify }},
+    "url": {{ post.url | prepend: lang_prefix | relative_url | jsonify }},
+    "categories": {{ post.categories | join: ', ' | jsonify }},
+    "tags": {{ post.tags | join: ', ' | jsonify }},
+    "date": {{ post.date | jsonify }},
+    {% capture content -%}{% include post-summary.html full_text=true %}{%- endcapture -%}
+    "content": {{ content | jsonify }}
+  }{% unless forloop.last %},{% endunless %}
+  {% endfor %}
+]

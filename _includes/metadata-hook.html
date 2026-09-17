@@ -1,0 +1,22 @@
+{% comment %} Alternate-language links; canonical comes from jekyll-seo-tag {% endcomment %}
+{% for lang_code in site.languages %}
+  <link rel="alternate" hreflang="{{ lang_code }}" href="{{ site.url }}{% if lang_code != site.default_lang %}/{{ lang_code }}{% endif %}{{ page.url }}">
+{% endfor %}
+<link rel="alternate" hreflang="x-default" href="{{ site.url }}/en{{ page.url }}">
+{% if site.active_lang == site.default_lang %}
+  <script>
+    /* Send visitors to their browser language unless they picked one in the language menu */
+    (function () {
+      if (/bot|crawl|spider|slurp/i.test(navigator.userAgent)) return;
+      var target;
+      try { target = localStorage.getItem('lang'); } catch (e) {}
+      if (!target) {
+        var pref = ((navigator.languages && navigator.languages[0]) || navigator.language || '').toLowerCase();
+        target = pref.indexOf('pt') === 0 ? '{{ site.default_lang }}' : pref.indexOf('es') === 0 ? 'es' : 'en';
+      }
+      if (target !== '{{ site.default_lang }}' && {{ site.languages | jsonify }}.indexOf(target) !== -1) {
+        location.replace('/' + target + location.pathname + location.search + location.hash);
+      }
+    })();
+  </script>
+{% endif %}
