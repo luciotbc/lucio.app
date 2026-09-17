@@ -24,6 +24,18 @@
   margin-right: 1rem;
   padding-left: 1rem;
   white-space: nowrap;
+  color: var(--text-muted-color);
+
+  /* same look as the TOC links: muted text, highlight color only on hover */
+  .lang-link {
+    color: var(--text-muted-color);
+    text-decoration: none;
+
+    &:hover {
+      color: var(--toc-highlight);
+      text-decoration: none;
+    }
+  }
 
   @include bp.lt(bp.get(lg)) {
     display: none;
