@@ -1,0 +1,31 @@
+---
+---
+
+@use 'abstracts/variables' with (
+  $theme: '{{ site.theme_mode }}'
+);
+
+/* prettier-ignore */
+@use 'main
+{%- if jekyll.environment == 'production' -%}
+  .bundle
+{%- endif -%}
+';
+
+/* append your custom style below */
+
+@use 'abstracts/breakpoints' as bp;
+
+/* Topbar links to the other languages; hidden on small screens (use the sidebar switcher there) */
+#lang-links {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  margin-right: 1rem;
+  padding-left: 1rem;
+  white-space: nowrap;
+
+  @include bp.lt(bp.get(lg)) {
+    display: none;
+  }
+}

@@ -42,6 +42,7 @@ There is no unit test suite; `tools/test.sh` (build + `htmlproofer --disable-ext
   - `_includes/lang.html` — UI locale from `site.active_lang` via `_data/i18n.yml` (`es` → `es-ES.yml`).
   - `_includes/sidebar.html` — per-language tagline and globe dropdown language switcher (stores choice in `localStorage.lang`).
   - `_includes/metadata-hook.html` — `hreflang` alternates (x-default → en) and the browser-language redirect script, which only runs on pt-BR (root) pages: stored choice wins, else `pt*` stays, `es*` → `/es/`, anything else → `/en/`; bots are skipped.
+  - `_includes/topbar.html` — links to the other languages (native names, active language hidden) left of the search box; styled in `assets/css/jekyll-theme-chirpy.scss` (the theme's purged CSS bundle lacks most Bootstrap responsive utilities like `d-lg-flex`, so add custom CSS there instead).
   - `_includes/search-loader.html` + `assets/js/data/search.json` — per-language search index.
 - Per-language strings not in `_data/locales` (tagline, language names) live in `_data/i18n.yml`. Tabs translate the same way (`_tabs/en/about.md`, `_tabs/es/about.md`); untranslated tabs fall back to pt-BR.
 
