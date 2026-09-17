@@ -41,11 +41,3 @@
     display: none;
   }
 }
-
-/* "Recently Updated" panel: same hover as the TOC links instead of the theme's orange underline */
-#access-lastmod a:hover {
-  color: var(--toc-highlight) !important;
-  border-bottom: none;
-  margin-bottom: 0;
-  text-decoration: none;
-}
