@@ -6,7 +6,7 @@ tags: [dotfiles, arch, linux, setup, bash]
 excerpt: "Como organizei meus dotfiles pra subir uma máquina Arch nova (ou remota) em um comando, aproveitando pacman, AUR e um padrão de módulos por pasta com install.sh próprio."
 ---
 
-Toda vez que eu reinstalava o sistema ou subia uma VM nova, perdia algumas horas reaplicando configs. Resolvi isso com [um repo de dotfiles](https://github.com/luciotbc/dotfiles) construído em torno de uma ideia simples: **um comando, um sistema pronto** — desde que a base seja Arch (ou Manjaro) com recursos equivalentes.
+Toda vez que eu reinstalava o sistema ou subia uma VM nova, perdia algumas horas reaplicando configs. Resolvi isso com [um repo de dotfiles](https://github.com/luciotbc/my_arch_dotfiles) construído em torno de uma ideia simples: **um comando, um sistema pronto** — desde que a base seja Arch (ou Manjaro) com recursos equivalentes.
 
 Esse post é um tour por dentro dele: a estrutura, as decisões de design, e por que Arch é a base certa pra esse tipo de automação.
 
@@ -56,14 +56,14 @@ Cada pasta na raiz é um **módulo** com responsabilidade única. Todas têm a m
 O ponto de entrada é um one-liner pra rodar em uma máquina nova:
 
 ```bash
-curl -sL https://raw.githubusercontent.com/luciotbc/dotfiles/master/_setup.sh | bash
+curl -sL https://raw.githubusercontent.com/luciotbc/my_arch_dotfiles/master/_setup.sh | bash
 ```
 
 O `_setup.sh` faz três coisas:
 
 ```bash
 DOTFILES=${DOTFILES:-~/.dotfiles}
-REPO=${REPO:-luciotbc/dotfiles}
+REPO=${REPO:-luciotbc/my_arch_dotfiles}
 REMOTE=${REMOTE:-https://github.com/${REPO}.git}
 BRANCH=${BRANCH:-master}
 ```
@@ -286,7 +286,7 @@ passwd lucio
 visudo  # descomentar %wheel
 
 # 2. Logar como o usuário e rodar o one-liner
-curl -sL https://raw.githubusercontent.com/luciotbc/dotfiles/master/_setup.sh | bash
+curl -sL https://raw.githubusercontent.com/luciotbc/my_arch_dotfiles/master/_setup.sh | bash
 
 # 3. Configurar SSH/GPG (instruções no README)
 ssh-keygen -t rsa -b 4096 -C "hi@lucio.app"
@@ -314,4 +314,4 @@ A coisa que mais me serve depois de quase um ano usando esse layout:
 
 E principalmente: aproveitar Arch + AUR como repositório universal de software resolve o que em outras distros vira solução com 4 ferramentas diferentes (apt + snap + flatpak + AppImage). Isso reduz drasticamente o que eu preciso codar nos dotfiles — quase tudo é "adicionar nome do pacote no array".
 
-Repo público em [github.com/luciotbc/dotfiles](https://github.com/luciotbc/dotfiles) se quiser fazer fork.
+Repo público em [github.com/luciotbc/my_arch_dotfiles](https://github.com/luciotbc/my_arch_dotfiles) se quiser fazer fork.

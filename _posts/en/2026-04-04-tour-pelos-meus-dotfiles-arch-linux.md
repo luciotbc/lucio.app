@@ -8,7 +8,7 @@ lang: en
 ref: tour-pelos-meus-dotfiles-arch-linux
 ---
 
-Every time I reinstalled the system or spun up a new VM, I'd lose a few hours reapplying configs. I solved that with [a dotfiles repo](https://github.com/luciotbc/dotfiles) built around a simple idea: **one command, one ready system** — as long as the base is Arch (or Manjaro) with equivalent resources.
+Every time I reinstalled the system or spun up a new VM, I'd lose a few hours reapplying configs. I solved that with [a dotfiles repo](https://github.com/luciotbc/my_arch_dotfiles) built around a simple idea: **one command, one ready system** — as long as the base is Arch (or Manjaro) with equivalent resources.
 
 This post is a tour inside it: the structure, the design decisions, and why Arch is the right base for this kind of automation.
 
@@ -58,14 +58,14 @@ Each folder at the root is a **module** with a single responsibility. All of the
 The entry point is a one-liner to run on a new machine:
 
 ```bash
-curl -sL https://raw.githubusercontent.com/luciotbc/dotfiles/master/_setup.sh | bash
+curl -sL https://raw.githubusercontent.com/luciotbc/my_arch_dotfiles/master/_setup.sh | bash
 ```
 
 `_setup.sh` does three things:
 
 ```bash
 DOTFILES=${DOTFILES:-~/.dotfiles}
-REPO=${REPO:-luciotbc/dotfiles}
+REPO=${REPO:-luciotbc/my_arch_dotfiles}
 REMOTE=${REMOTE:-https://github.com/${REPO}.git}
 BRANCH=${BRANCH:-master}
 ```
@@ -288,7 +288,7 @@ passwd lucio
 visudo  # uncomment %wheel
 
 # 2. Log in as the user and run the one-liner
-curl -sL https://raw.githubusercontent.com/luciotbc/dotfiles/master/_setup.sh | bash
+curl -sL https://raw.githubusercontent.com/luciotbc/my_arch_dotfiles/master/_setup.sh | bash
 
 # 3. Configure SSH/GPG (instructions in README)
 ssh-keygen -t rsa -b 4096 -C "hi@lucio.app"
@@ -316,4 +316,4 @@ The thing that has served me most after almost a year using this layout:
 
 And most importantly: leveraging Arch + AUR as a universal software repository solves what in other distros becomes a 4-tool solution (apt + snap + flatpak + AppImage). This drastically reduces what I need to code in the dotfiles — almost everything is "add the package name to the array".
 
-Public repo at [github.com/luciotbc/dotfiles](https://github.com/luciotbc/dotfiles) if you want to fork it.
+Public repo at [github.com/luciotbc/my_arch_dotfiles](https://github.com/luciotbc/my_arch_dotfiles) if you want to fork it.

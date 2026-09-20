@@ -8,7 +8,7 @@ lang: es
 ref: tour-pelos-meus-dotfiles-arch-linux
 ---
 
-Cada vez que reinstalaba el sistema o levantaba una VM nueva, perdía algunas horas reaplicando configs. Lo resolví con [un repo de dotfiles](https://github.com/luciotbc/dotfiles) construido alrededor de una idea simple: **un comando, un sistema listo** — siempre que la base sea Arch (o Manjaro) con recursos equivalentes.
+Cada vez que reinstalaba el sistema o levantaba una VM nueva, perdía algunas horas reaplicando configs. Lo resolví con [un repo de dotfiles](https://github.com/luciotbc/my_arch_dotfiles) construido alrededor de una idea simple: **un comando, un sistema listo** — siempre que la base sea Arch (o Manjaro) con recursos equivalentes.
 
 Este post es un tour por dentro: la estructura, las decisiones de diseño, y por qué Arch es la base correcta para este tipo de automatización.
 
@@ -58,14 +58,14 @@ Cada carpeta en la raíz es un **módulo** con responsabilidad única. Todas tie
 El punto de entrada es un one-liner para correr en una máquina nueva:
 
 ```bash
-curl -sL https://raw.githubusercontent.com/luciotbc/dotfiles/master/_setup.sh | bash
+curl -sL https://raw.githubusercontent.com/luciotbc/my_arch_dotfiles/master/_setup.sh | bash
 ```
 
 `_setup.sh` hace tres cosas:
 
 ```bash
 DOTFILES=${DOTFILES:-~/.dotfiles}
-REPO=${REPO:-luciotbc/dotfiles}
+REPO=${REPO:-luciotbc/my_arch_dotfiles}
 REMOTE=${REMOTE:-https://github.com/${REPO}.git}
 BRANCH=${BRANCH:-master}
 ```
@@ -288,7 +288,7 @@ passwd lucio
 visudo  # descomentar %wheel
 
 # 2. Loguearse como el usuario y correr el one-liner
-curl -sL https://raw.githubusercontent.com/luciotbc/dotfiles/master/_setup.sh | bash
+curl -sL https://raw.githubusercontent.com/luciotbc/my_arch_dotfiles/master/_setup.sh | bash
 
 # 3. Configurar SSH/GPG (instrucciones en el README)
 ssh-keygen -t rsa -b 4096 -C "hi@lucio.app"
@@ -316,4 +316,4 @@ Lo que más me sirve después de casi un año usando este layout:
 
 Y principalmente: aprovechar Arch + AUR como repositorio universal de software resuelve lo que en otras distros se convierte en una solución de 4 herramientas (apt + snap + flatpak + AppImage). Eso reduce drásticamente lo que necesito codear en los dotfiles — casi todo es "agregar el nombre del paquete al array".
 
-Repo público en [github.com/luciotbc/dotfiles](https://github.com/luciotbc/dotfiles) si querés hacer fork.
+Repo público en [github.com/luciotbc/my_arch_dotfiles](https://github.com/luciotbc/my_arch_dotfiles) si querés hacer fork.
